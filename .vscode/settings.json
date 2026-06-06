@@ -1,0 +1,11 @@
+{
+  // Tailwind's @tailwind / @apply / @layer are valid PostCSS at-rules but the
+  // built-in CSS language server doesn't know them — silence the false warnings.
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore",
+  // Better DX if you install the "Tailwind CSS IntelliSense" extension:
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
+}
