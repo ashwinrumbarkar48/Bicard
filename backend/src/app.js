@@ -26,17 +26,10 @@ app.set('trust proxy', 1);
 
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 
-const allowedOrigins = (process.env.CORS_ORIGINS ||
-  'http://localhost:3000,http://localhost:3001,http://localhost:5173,http://localhost:5174')
-  .split(',')
-  .map((o) => o.trim());
-
+// Allow requests from any origin (Netlify, Vercel, localhost, etc.)
 app.use(
   cors({
-    origin: (origin, cb) => {
-      if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
-      return cb(new Error('Not allowed by CORS'));
-    },
+    origin: true,
     credentials: true,
   })
 );
